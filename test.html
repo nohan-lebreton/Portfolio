@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bouton qui fuit le curseur</title>
+  <style>
+    #myButton {
+      position: absolute;
+      transition: 0.2s; /* Ajout d'une transition pour une animation fluide */
+    }
+  </style>
+</head>
+<body>
+  <button id="myButton">Cliquez-moi !</button>
+
+  <script>
+    var button = document.getElementById('myButton');
+    var initialX = button.offsetLeft;
+    var initialY = button.offsetTop;
+    var threshold = 300; // Seuil de distance pour que le bouton commence à fuir
+
+    document.addEventListener('mousemove', function(event) {
+      var mouseX = event.clientX;
+      var mouseY = event.clientY;
+
+      var buttonX = button.offsetLeft + button.offsetWidth / 2;
+      var buttonY = button.offsetTop + button.offsetHeight / 2;
+
+      var distX = mouseX - buttonX;
+      var distY = mouseY - buttonY;
+
+      var distance = Math.sqrt(distX * distX + distY * distY);
+
+      if (distance < threshold) {
+        var angle = Math.atan2(distY, distX);
+        var maxDistance = 2000; // Distance maximale à laquelle le bouton s'éloigne
+
+        var newX = buttonX - Math.cos(angle) * maxDistance;
+        var newY = buttonY - Math.sin(angle) * maxDistance;
+
+        button.style.left = newX - button.offsetWidth / 2 + 'px';
+        button.style.top = newY - button.offsetHeight / 2 + 'px';
+      } else {
+        button.style.left = initialX + 'px';
+        button.style.top = initialY + 'px';
+      }
+    });
+  </script>
+</body>
+</html>
