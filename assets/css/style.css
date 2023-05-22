@@ -91,3 +91,13 @@ ul {
 	height: 400px;
 	overflow: hidden;
 }
+
+#skills {
+	height: 400px;
+	overflow-y: auto;
+  }
+
+#card-container {
+	height: 500px;
+	overflow-y: auto;
+}
