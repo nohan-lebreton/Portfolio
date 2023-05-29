@@ -14,7 +14,7 @@ Voici une liste de mes projets récents :
 - [Nom du projet](lien vers le projet) : une brève description du projet.
 - [Nom du projet](lien vers le projet) : une brève description du projet.
 
-Pour en savoir plus sur mes projets, veuillez consulter mon [portefeuille de projets](lien vers le portefeuille).
+Pour en savoir plus sur mes projets, veuillez consulter mon [GitHub](https://github.com/Nobisckur).
 
 ## Mes compétences clés
 
@@ -30,8 +30,7 @@ Pour en savoir plus sur mes compétences, veuillez consulter mon [profil LinkedI
 
 N'hésitez pas à me contacter si vous êtes intéressé par mon profil ou si vous avez des questions. Voici mes coordonnées :
 
-- Email : [votre adresse email]
+- Email : lebreton.nohan@gmail.com
 - LinkedIn : https://www.linkedin.com/in/nohan-lebreton-199b20210
-- Twitter : [votre nom d'utilisateur Twitter]
 
 Merci d'avoir visité mon site portfolio !
