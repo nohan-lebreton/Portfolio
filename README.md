@@ -24,14 +24,14 @@ Pour en savoir plus sur mes projets, veuillez consulter mon [portefeuille de pro
 - [Compétence clé 4]
 - [Compétence clé 5]
 
-Pour en savoir plus sur mes compétences, veuillez consulter mon [profil LinkedIn](lien vers le profil LinkedIn).
+Pour en savoir plus sur mes compétences, veuillez consulter mon [profil LinkedIn](https://www.linkedin.com/in/nohan-lebreton-199b20210).
 
 ## Comment me contacter
 
 N'hésitez pas à me contacter si vous êtes intéressé par mon profil ou si vous avez des questions. Voici mes coordonnées :
 
 - Email : [votre adresse email]
-- LinkedIn : [lien vers votre profil LinkedIn]
+- LinkedIn : https://www.linkedin.com/in/nohan-lebreton-199b20210
 - Twitter : [votre nom d'utilisateur Twitter]
 
 Merci d'avoir visité mon site portfolio !
