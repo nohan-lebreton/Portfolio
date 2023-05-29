@@ -4,14 +4,14 @@ Ce site a été créé pour présenter mes projets et mes compétences en tant q
 
 ## À propos de moi
 
-Je suis actuellement en recherche d'alternance en master et je suis passionné par le développement web. J'aime travailler sur des projets innovants et relever des défis techniques. En dehors du travail, j'aime [vos intérêts ou passe-temps].
+Je suis actuellement en recherche d'alternance en master et je suis passionné par le développement web. J'aime travailler sur des projets innovants et relever des défis techniques. En dehors du travail, j'aime faire des activités sportives: tennis, breakdance, escalade ...
 
 ## Mes projets
 
 Voici une liste de mes projets récents :
 
-- [Nom du projet](lien vers le projet) : une brève description du projet.
-- [Nom du projet](lien vers le projet) : une brève description du projet.
+- [AnalysisSortAlgo](lien vers le projet) : une brève description du projet.
+- [Taquin](lien vers le projet) : une brève description du projet.
 - [Nom du projet](lien vers le projet) : une brève description du projet.
 
 Pour en savoir plus sur mes projets, veuillez consulter mon [GitHub](https://github.com/Nobisckur).
