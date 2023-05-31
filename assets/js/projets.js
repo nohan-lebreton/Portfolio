@@ -93,70 +93,71 @@ let scrollDirection = 1; // 1 pour défilement de droite à gauche, -1 pour déf
 
 // Gère le défilement automatique des cartes
 function startScrolling() {
-    scrollInterval = setInterval(() => {
-        cardContainer.scrollLeft += 2 * scrollDirection; // Ajustez la valeur de défilement selon vos besoins
+  scrollInterval = setInterval(() => {
+    cardContainer.scrollLeft += 2 * scrollDirection; // Ajustez la valeur de défilement selon vos besoins
 
-        // Vérifie si le défilement atteint la fin ou le début du conteneur
-        if (scrollDirection === 1 && cardContainer.scrollLeft >= (cardContainer.scrollWidth - cardContainer.offsetWidth)) {
-            // Changement de direction de droite à gauche
-            scrollDirection = -1;
-        } else if (scrollDirection === -1 && cardContainer.scrollLeft <= 0) {
-            // Changement de direction de gauche à droite
-            scrollDirection = 1;
-        }
-    }, 10); // Ajustez l'intervalle de défilement selon vos besoins
+    // Vérifie si le défilement atteint la fin ou le début du conteneur
+    if (
+      scrollDirection === 1 &&
+      cardContainer.scrollLeft >=
+        cardContainer.scrollWidth - cardContainer.offsetWidth
+    ) {
+      // Changement de direction de droite à gauche
+      scrollDirection = -1;
+    } else if (scrollDirection === -1 && cardContainer.scrollLeft <= 0) {
+      // Changement de direction de gauche à droite
+      scrollDirection = 1;
+    }
+  }, 10); // Ajustez l'intervalle de défilement selon vos besoins
 }
 
 // Arrête le défilement automatique des cartes
 function stopScrolling() {
-    clearInterval(scrollInterval);
+  clearInterval(scrollInterval);
 }
 
 // Démarre le défilement automatique lorsque la souris ne survole pas le conteneur
 cardContainer.addEventListener("mouseenter", function () {
-    stopScrolling();
+  stopScrolling();
 });
 
 // Arrête le défilement automatique lorsque la souris survole le conteneur
 cardContainer.addEventListener("mouseleave", function () {
-    startScrolling();
+  startScrolling();
 });
 
 let touchStartX = 0; // Position de départ du toucher
 let touchMoveX = 0; // Position actuelle du toucher
+let isTouching = false; // Indique si l'écran est touché
 
 // Gère l'événement de toucher de l'écran
 cardContainer.addEventListener("touchstart", function (event) {
-    touchStartX = event.touches[0].clientX;
+  touchStartX = event.touches[0].clientX;
+  isTouching = true;
 });
 
 // Gère l'événement de déplacement du toucher
 cardContainer.addEventListener("touchmove", function (event) {
-    touchMoveX = event.touches[0].clientX;
+  touchMoveX = event.touches[0].clientX;
 
-    // Calcule la distance parcourue par le toucher
-    const touchDistance = touchMoveX - touchStartX;
+  // Calcule la distance parcourue par le toucher
+  const touchDistance = touchMoveX - touchStartX;
 
-    // Vérifie si la distance parcourue dépasse une certaine valeur (par exemple, 20 pixels)
-    if (Math.abs(touchDistance) > 20) {
-        // Arrête le défilement automatique des cartes
-        stopScrolling();
-    }
+  // Vérifie si la distance parcourue dépasse une certaine valeur (par exemple, 20 pixels)
+  if (Math.abs(touchDistance) > 20) {
+    // Arrête le défilement automatique des cartes
+    stopScrolling();
+  }
 });
 
 // Gère l'événement de fin de toucher
 cardContainer.addEventListener("touchend", function () {
-    // Redémarre le défilement automatique des cartes
-    startScrolling();
-});
+  // Redémarre le défilement automatique des cartes après un délai de 2 secondes
+  setTimeout(() => {
+    if (!isTouching) {
+      startScrolling();
+    }
+  }, 2000);
 
-// Gère le changement de saisie dans l'input
-document.getElementById("search-input").addEventListener("input", function () {
-    const searchInput = this.value.toLowerCase();
-
-    const filteredProjects = projects.filter(function (project) {
-        return project.title.toLowerCase().includes(searchInput) + project.text.toLowerCase().includes(searchInput);
-    });
-
-    generateProjectCards(filteredProjects);
+  isTouching = false;
 });
