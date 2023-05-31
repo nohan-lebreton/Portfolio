@@ -1,7 +1,7 @@
 const projects = [
     {
         title: "Analyse des algorithmes de trie",
-        text: "[python] Implémenter des algorithmes de tri et à les visualiser en action, tout en évaluant leur efficacité en fonction du désordre des données en entrée.",
+        text: "En python implémenter des algorithmes de tri et à les visualiser en action, tout en évaluant leur efficacité en fonction du désordre des données en entrée.",
         imageSrc: "assets/img/pgVisual.png",
         linkGit: "https://github.com/nohan-lebreton/AnalysisSortAlgo",
         linkWeb: null
@@ -85,7 +85,6 @@ function generateProjectCards(projects) {
 }
 
 
-
 // Génère les cartes de projet initialement
 generateProjectCards(projects);
 
@@ -123,5 +122,41 @@ cardContainer.addEventListener("mouseleave", function () {
     startScrolling();
 });
 
-// Démarre le défilement automatique initialement
-startScrolling();
+let touchStartX = 0; // Position de départ du toucher
+let touchMoveX = 0; // Position actuelle du toucher
+
+// Gère l'événement de toucher de l'écran
+cardContainer.addEventListener("touchstart", function (event) {
+    touchStartX = event.touches[0].clientX;
+});
+
+// Gère l'événement de déplacement du toucher
+cardContainer.addEventListener("touchmove", function (event) {
+    touchMoveX = event.touches[0].clientX;
+
+    // Calcule la distance parcourue par le toucher
+    const touchDistance = touchMoveX - touchStartX;
+
+    // Vérifie si la distance parcourue dépasse une certaine valeur (par exemple, 20 pixels)
+    if (Math.abs(touchDistance) > 20) {
+        // Arrête le défilement automatique des cartes
+        stopScrolling();
+    }
+});
+
+// Gère l'événement de fin de toucher
+cardContainer.addEventListener("touchend", function () {
+    // Redémarre le défilement automatique des cartes
+    startScrolling();
+});
+
+// Gère le changement de saisie dans l'input
+document.getElementById("search-input").addEventListener("input", function () {
+    const searchInput = this.value.toLowerCase();
+
+    const filteredProjects = projects.filter(function (project) {
+        return project.title.toLowerCase().includes(searchInput) + project.text.toLowerCase().includes(searchInput);
+    });
+
+    generateProjectCards(filteredProjects);
+});
