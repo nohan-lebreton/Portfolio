@@ -1,17 +1,24 @@
 const projects = [
     {
         title: "Analyse des algorithmes de trie",
-        text: "Ce projet vise à implémenter des algorithmes de tri et à les visualiser en action, tout en évaluant leur efficacité en fonction du désordre des données en entrée.",
+        text: "[python] Implémenter des algorithmes de tri et à les visualiser en action, tout en évaluant leur efficacité en fonction du désordre des données en entrée.",
         imageSrc: "assets/img/pgVisual.png",
         linkGit: "https://github.com/nohan-lebreton/AnalysisSortAlgo",
         linkWeb: null
     },
     {
-        title: "Card title 2",
-        text: "This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-        imageSrc: "assets/img/pgVisual.png",
-        linkGit: "https://github.com/example2",
-        linkWeb: "https://example.com"
+        title: "Jeu taquin",
+        text: " Développé un jeu de taquin fonctionnel en utilisant Java, avec une version console et une version avec une interface graphique. Cela m'a permis de me familiariser avec le modèle MVC.",
+        imageSrc: "assets/img/taquin.png",
+        linkGit: "https://github.com/nohan-lebreton/Taquin",
+        linkWeb: null
+    },
+    {
+        title: "Mon portfolio",
+        text: "Développé un site portfolio vitrine dans le but d'organiser mes projets et mettre en valeur mes compétences.",
+        imageSrc: "assets/img/portfolio.png",
+        linkGit: null,
+        linkWeb: "https://nohan-lebreton.github.io/Portfolio/",
     },
 
  
@@ -47,14 +54,17 @@ function generateProjectCards(projects) {
         text.classList.add("card-text");
         text.textContent = project.text;
 
-        const linkGit = document.createElement("a");
-        linkGit.classList.add("btn", "btn-dark");
-        linkGit.href = project.linkGit;
-        linkGit.innerHTML = '<i class="bi bi-github"></i> GitHub';
-
         cardBody.appendChild(title);
         cardBody.appendChild(text);
-        cardBody.appendChild(linkGit);
+
+        if (project.linkGit) {
+            const linkGit = document.createElement("a");
+            linkGit.classList.add("btn", "btn-dark");
+            linkGit.href = project.linkGit;
+            linkGit.innerHTML = '<i class="bi bi-github"></i> GitHub';
+
+            cardBody.appendChild(linkGit);
+        }
 
         if (project.linkWeb) {
             const linkWeb = document.createElement("a");
@@ -64,7 +74,7 @@ function generateProjectCards(projects) {
 
             cardBody.appendChild(linkWeb);
         }
-
+        
         card.appendChild(image);
         card.appendChild(cardBody);
 
