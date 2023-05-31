@@ -56,10 +56,6 @@ ul {
 	margin-bottom: 10px;
 }
 
-.btn-primary {
-	background-color: #333;
-	border-color: #333;
-}
 
 .bg-sand{
 	background-color: rgb(247, 208, 125);
@@ -87,17 +83,48 @@ ul {
 	margin: 3px
 }
 
-.carousel{
-	height: 400px;
-	overflow: hidden;
-}
-
 #skills {
 	height: 400px;
 	overflow-y: auto;
   }
 
-#card-container {
-	height: 500px;
-	overflow-y: auto;
+  #card-container {
+    height: 500px;
+    overflow-x: auto; /* Modifier overflow-x: scroll en overflow-x: auto */
+    overflow-y: hidden; /* Supprimer overflow-y: scroll */
+    margin-top: 1em;
 }
+
+.card-body{
+	width: 300px;
+	height: 250px;
+	overflow: hidden;
+}
+
+.card-text{
+	font-size: small;
+	height: 100px;
+}
+.card-title{
+	height: 55px;
+}
+
+
+#mon-parcours {
+	background-color: #fffce4;
+	padding: 20px;
+  }
+  
+  #mon-parcours h2 {
+	color: #333;
+  }
+  
+  #parcours-liste {
+	list-style-type: disc;
+	margin-left: 20px;
+  }
+  
+  #parcours-liste li {
+	margin-bottom: 10px;
+	text-align: left;
+  }
